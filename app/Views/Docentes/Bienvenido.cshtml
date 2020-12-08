@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Bienvenido";
+}
+
+@model IEnumerable<SistemasVirtuales.Models.Alumnos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bienvenido @Session["nombre"]</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.matricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_pat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_mat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carrera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.birthday)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ap_pat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ap_mat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.carrera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.birthday)
+            </td>
+        </tr>
+    }
+
+</table>
+

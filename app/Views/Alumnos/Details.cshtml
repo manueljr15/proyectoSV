@@ -1,0 +1,66 @@
+﻿@model SistemasVirtuales.Models.Alumnos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Alumnos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_pat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_pat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_mat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_mat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.carrera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carrera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birthday)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Alumnos }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

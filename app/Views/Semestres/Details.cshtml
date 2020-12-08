@@ -1,0 +1,42 @@
+﻿@model SistemasVirtuales.Models.Semestre
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Semestre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.inicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.folio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.folio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_semestre }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

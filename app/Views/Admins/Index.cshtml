@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SistemasVirtuales.Models.Admins>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            email
+        </th>
+        <th>
+            Usuario
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Puesto
+        </th>
+        <th>
+            Rol
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario) 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre) @Html.DisplayFor(modelItem => item.ap_pat) @Html.DisplayFor(modelItem => item.ap_mat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.puesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rol)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Admi }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Admi }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Admi })
+        </td>
+    </tr>
+}
+
+</table>

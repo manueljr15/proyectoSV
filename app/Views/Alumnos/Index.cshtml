@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SistemasVirtuales.Models.Alumnos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Matricula
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Carrera
+        </th>
+        <th>
+            Fecha de Nacimiento
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.matricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre) @Html.DisplayFor(modelItem => item.ap_pat) @Html.DisplayFor(modelItem => item.ap_mat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carrera)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.birthday)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Alumnos }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Alumnos }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Alumnos })
+        </td>
+    </tr>
+}
+
+</table>

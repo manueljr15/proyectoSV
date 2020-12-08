@@ -1,0 +1,42 @@
+﻿@model SistemasVirtuales.Models.Tutores_Alumnos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tutores_Alumnos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Alumnos.matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alumnos.matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Docentes.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Docentes.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semestre.folio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semestre.folio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_relacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

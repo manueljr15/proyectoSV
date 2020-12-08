@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SistemasVirtuales.Models.Tutores_Alumnos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Alumnos.matricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Docentes.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semestre.folio)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alumnos.matricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Docentes.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semestre.folio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_relacion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_relacion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_relacion })
+        </td>
+    </tr>
+}
+
+</table>

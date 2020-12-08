@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <script src="~/Scripts/Master.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @{ 
+                    string vista = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+                    string controlador = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+                    if (Session["Rol"] == null)
+                    {
+                        Response.Redirect(Url.Action("Login", "Home"));
+                    }
+                    else
+                    {
+                        if (Session["Rol"].Equals("Admin") && (vista.Equals("Bienvenido") && controlador.Equals("Docentes")))
+                        {
+                            Response.Redirect(Url.Action("Bienvenido", "Admins",new {id=Session["id"] }));
+                        }
+                        else
+                        {
+                            if (Session["Rol"].Equals("Docente") && !vista.Equals("Bienvenido"))
+                            {
+                                Response.Redirect(Url.Action("Bienvenido", "Docentes", new { id = Session["id"] }));
+                            }
+                        }
+                    }
+                    }
+                @if (Session["Rol"].Equals("Admin"))
+                {
+                    @Html.ActionLink("Tutorias", "Bienvenido", "Admins", new { id = Session["id"] }, new { @class = "navbar-brand" })
+                }
+                else
+                {
+                    @Html.ActionLink("Tutorias", "Bienvenido", "Docentes", new { id = Session["id"] }, new { @class = "navbar-brand" })
+                }
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Session["Rol"].Equals("Admin"))
+                    {
+                        <li>@Html.ActionLink("Administrativos", "Index", "Admins")</li>
+                        <li>@Html.ActionLink("Maestros", "Index", "Docentes")</li>
+                        <li>@Html.ActionLink("Alumnos", "Index", "Alumnos")</li>
+                        <li>@Html.ActionLink("Semestre", "Index", "Semestres")</li>
+                        
+                    }<li> @Html.ActionLink("LogOut", "LogOut", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
